@@ -4,9 +4,15 @@ import org.hibernate.annotations.Type;
 import org.joda.time.LocalDate;
 
 import java.util.Objects;
+import javax.persistence.*;
 
-public abstract class Employe {
+//Ex 1.1
+@Entity
+public /*abstract*/ class Employe {
 
+	//Ex 2.2
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	private String nom;
@@ -40,7 +46,7 @@ public abstract class Employe {
 		return Entreprise.NB_CONGES_BASE;
 	}
 	
-	public abstract Double getPrimeAnnuelle();
+	//public abstract Double getPrimeAnnuelle();
 
 	public void augmenterSalaire(Double pourcentage) {
 		this.salaire = this.getSalaire() * (1 + pourcentage);
