@@ -20,5 +20,12 @@ public class EmployeService {
 
     }
 
+    public Employe creerEmploye (Employe e) {
+        return employeRepository.save(e);
+    }
+
+   public void deleteEmploye (Long id) {
+       employeRepository.delete(id);
+   }
 
 }

@@ -2,6 +2,7 @@ package com.ipiecoles.java.java230.service;
 
 import com.ipiecoles.java.java230.model.Commercial;
 import com.ipiecoles.java.java230.model.Employe;
+import com.ipiecoles.java.java230.model.Manager;
 import com.ipiecoles.java.java230.repository.EmployeRepository;
 import com.ipiecoles.java.java230.utils.TestUtils;
 import org.assertj.core.api.Assertions;
@@ -41,7 +42,7 @@ public class EmployeServiceTest {
         //Given
 
         //When
-        Employe e = employeService.findById(2L);
+        Manager e = (Manager)employeService.findById(2L);
 
         //Then
         Assertions.assertThat(e).isNotNull();
@@ -68,27 +69,27 @@ public class EmployeServiceTest {
         Employe c = new Commercial("test", "test", "test", LocalDate.now(), 500d, 0d);
 
         //When
-        /*c = employeService.creerEmploye(c);
+        c = employeService.creerEmploye(c);
 
         //Then
         Assertions.assertThat(c.getId()).isNotNull();
 
         //TearDown
-        employeRepository.delete(c.getId());*/
+        employeRepository.delete(c.getId());
 
     }
 
     @Test
     public void exo305testDeleteEmploye(){
         //Given
-        Commercial c = new Commercial("test", "test", "test", LocalDate.now(), 500d, 0d);
-        /*c = employeRepository.save(c);
+        Employe c = new Commercial("test", "test", "test", LocalDate.now(), 500d, 0d);
+        c = employeRepository.save(c);
 
         //When
         employeService.deleteEmploye(c.getId());
 
         //Then
-        Assertions.assertThat(employeService.findById(c.getId())).isNull();*/
+        Assertions.assertThat(employeService.findById(c.getId())).isNull();
 
     }
 

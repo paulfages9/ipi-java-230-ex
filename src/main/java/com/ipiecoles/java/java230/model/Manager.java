@@ -2,14 +2,21 @@ package com.ipiecoles.java.java230.model;
 
 import com.ipiecoles.java.java230.exceptions.TechnicienException;
 import org.joda.time.LocalDate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.annotation.Transient;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Entity
 public class Manager extends Employe {
 
+	@OneToMany( mappedBy = "manager", fetch = FetchType.EAGER) // EAGER permet de récupèrer un manager et son équipe
 	private Set<Technicien> equipe = new HashSet();
 
 	public Manager(){
